@@ -8,7 +8,8 @@ const Elevator = () => {
     const [elevatorState, setElevatorState] = useState({
         floors: 6,
         activeFloor: 0,
-        sequence: [4, 4, 2, 3]
+        sequence: [4, 4, 2, 3],
+        direction: undefined,
     })
 
     return <div className="elevator__container">
@@ -20,6 +21,7 @@ const Elevator = () => {
         <ElevatorControls 
             activeFloor={elevatorState.activeFloor}
             floors={elevatorState.floors} 
+            direction={elevatorState.direction}
             sequence={elevatorState.sequence.toString().replaceAll(",", " - ")}
             callBack={(index: number) => console.log(index)}
         />
