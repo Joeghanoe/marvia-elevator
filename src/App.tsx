@@ -1,28 +1,27 @@
 import './App.scss';
-import ElevatorShaft from './components/ElevatorShaft/ElevatorShaft';
+import Elevator from './components/Elevator/Elevator';
 
 const App = () => {
     return (
-        <div className="App__container">
-            <div></div>
+        <div className="app__container">
+            <Elevator />
         </div>
     );
 }
 
-{/* 
-    ElevatorContainer
-        ElevatorState    
-            ElevatorOrder
-            ElevatorPosition
+// ElevatorContainer
+//     ElevatorState    
+//         ElevatorOrder
+//         ElevatorPosition
 
-        ElevatorShaft
-            Elevator
-                Callback => Up/Down
-                IsOpen: boolean
+//     ElevatorShaft
+//         Elevator
+//             Callback => Up/Down
+//             IsOpen: boolean
 
-        ElevatorControls
-            Callback floor number
-*/}
+//     ElevatorControls
+//         Callback floor number
+
 
 // let elevator = [0, 3, 4, 5]
 
@@ -35,9 +34,7 @@ const App = () => {
 // 5 - 2 = 3           [1, 2, 3, 0]    
 
 // let elevatorOrder = [1, 2, 3, 0];
-
 // let order = elevator[elevatorOrder[0]];
-
 // elevatorOrder.shift();
 
 export default App;
