@@ -18,13 +18,18 @@ const Elevator = () => {
             let elevatorDelay;
 
             if(elevatorSequence.length){
+                // Run the elevator
                 elevatorDelay = setTimeout(() => {
                     setElevatorState({...elevatorState, activeFloor: elevatorSequence[0], isMoving: false})
+
+                    // If there is a sequence left slice it and rerun the useEffect
                     setElevatorSequence([...elevatorSequence.slice(1)])
                 }, (elevatorState.activeFloor - (elevatorSequence[0] ?? 1)) * 1000)
 
                 setElevatorState({...elevatorState, isMoving: true})
             } else {
+                
+                // Clear all states and reset elevator except for floor
                 setElevatorState({...elevatorState, direction: 2})
                 clearTimeout(elevatorDelay);
             }
@@ -41,9 +46,12 @@ const Elevator = () => {
     }
 
     const callElevatorFloor = (direction: number, index: number) => {
+
+        // Set direction of elevator
         setElevatorState({...elevatorState, direction: direction ? 1 : 0})
         if(elevatorSequence.includes(index)) return;
 
+        // Copy array and append new index
         let newElevatorSequence = [...elevatorSequence, index];
         
         // Map the elevator and compare the difference to the current floor to determine the best route
