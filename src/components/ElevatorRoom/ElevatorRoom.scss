@@ -16,8 +16,16 @@
         margin: 5%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 2px;
         grid-column: 2/3;
+        transition: 250ms ease-in-out grid-gap;
+
+        &--open{
+            grid-gap: 90%;
+        }
+
+        &--closed{
+            grid-gap: 2%;
+        }
     }
 
     &__door {

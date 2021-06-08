@@ -4,13 +4,13 @@ interface IElevatorControls {
     activeFloor: number,
     floors: number,
     sequence: string,
-    direction: any,
+    direction: number,
     callBack?: CallableFunction
 }
 
 const ElevatorControls = ({activeFloor, floors, sequence, direction, callBack}: IElevatorControls) => {
     return <div className="elevator-controls__container">
-        <span className="elevator-controls__floor elevator-controls__heading">Floor {activeFloor}</span>
+        <span className="elevator-controls__floor elevator-controls__heading">Floor {activeFloor === -1 ? 'moving' : activeFloor}</span>
         <div className="elevator-controls__buttons">
             {new Array(floors).fill('').map((buttons: object, index: number) => {
                 return <button 
@@ -27,7 +27,7 @@ const ElevatorControls = ({activeFloor, floors, sequence, direction, callBack}: 
         </div>
         <div className="elevator-controls__sequence">
             <span className="elevator-controls__heading">Richting</span>
-            <span>{direction === undefined ? 'statisch' : direction ? 'omhoog' : 'omlaag'}</span>
+            <span>{direction === 2 ? 'Statisch' : direction ? 'Omhoog' : 'Omlaag'}</span>
             <span className="elevator-controls__heading">Volgorde</span>
             <span>{sequence}</span>
         </div>

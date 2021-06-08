@@ -4,12 +4,13 @@ import './ElevatorRoom.scss'
 interface IElevatorProps {
     isUpDisabled?: boolean
     isDownDisabled?: boolean,
+    isActive?: boolean,
     callBack: CallableFunction
 }
 
-const ElevatorRoom = ({isUpDisabled, isDownDisabled, callBack}: IElevatorProps) => {
+const ElevatorRoom = ({isUpDisabled, isDownDisabled, isActive, callBack}: IElevatorProps) => {
     return <div className="elevator-room__container">
-        <div className="elevator-room__doors">
+        <div className={`elevator-room__doors elevator-room__doors--${isActive ? 'open' : 'closed'}`}>
             <div className="elevator-room__door" />
             <div className="elevator-room__door" />
         </div>
